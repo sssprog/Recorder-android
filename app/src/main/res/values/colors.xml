@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#607D8B</color>
+    <color name="primary_dark">#455A64</color>
+
+    <color name="accent">#FFF</color>
+    <color name="text_primary">#FFF</color>
+    <color name="text_secondary">#B3FFFFFF</color>
+
+    <color name="touch_feedback">#90FFFFFF</color>
+    <color name="record_btn_bg">#30FFFFFF</color>
+
+    <color name="apptheme_color">#ffffff</color>
+
+</resources>

@@ -1,0 +1,59 @@
+<resources>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="android:seekBarStyle">@style/SeekBarAppTheme</item>
+    </style>
+
+    <style name="BaseAppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+
+    <string name="font_roboto_regular">fonts/Roboto-Regular.ttf</string>
+    <string name="font_roboto_medium">fonts/Roboto-Medium.ttf</string>
+    <string name="font_roboto_light">fonts/Roboto-Light.ttf</string>
+
+    <style name="TextAppearance.AppTheme.Caption" parent="TextAppearance.AppCompat.Caption">
+        <item name="fontPath">@string/font_roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Display1" parent="TextAppearance.AppCompat.Display1">
+        <item name="fontPath">@string/font_roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Headline" parent="TextAppearance.AppCompat.Headline">
+        <item name="fontPath">@string/font_roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="fontPath">@string/font_roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Body2" parent="TextAppearance.AppCompat.Body2">
+        <item name="fontPath">@string/font_roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Subhead" parent="TextAppearance.AppCompat.Subhead">
+        <item name="fontPath">@string/font_roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="fontPath">@string/font_roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.AppTheme.Button" parent="TextAppearance.AppCompat.Button">
+        <item name="fontPath">@string/font_roboto_medium</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="SeekBarAppTheme" parent="android:Widget.Holo.SeekBar">
+        <item name="android:progressDrawable">@drawable/apptheme_scrubber_progress_horizontal_holo_dark</item>
+        <item name="android:indeterminateDrawable">@drawable/apptheme_scrubber_progress_horizontal_holo_dark</item>
+        <item name="android:thumb">@drawable/apptheme_scrubber_control_selector_holo_dark</item>
+    </style>
+
+</resources>

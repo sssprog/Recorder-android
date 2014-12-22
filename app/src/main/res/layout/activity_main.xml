@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?colorPrimary"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/record_play"
+        android:layout_width="@dimen/record_button_size"
+        android:layout_height="@dimen/record_button_size"
+        android:layout_centerInParent="true"
+        android:background="@drawable/record_btn_bg"
+        android:scaleType="center"
+        android:src="@drawable/ic_mic_white_48dp" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/record_play"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:textAppearance="@style/TextAppearance.AppTheme.Display1"
+        android:textColor="?android:textColorPrimary"
+        app:fontPath="@string/font_roboto_light"
+        tools:text="00:00" />
+
+    <ImageView
+        android:id="@+id/switchToRecording"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/record_play"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@id/record_play"
+        android:background="@drawable/circular_btn_bg"
+        android:scaleType="center"
+        android:src="@drawable/ic_mic_white_36dp" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="288dp"
+        android:max="100"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/record_play"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
+
+    <ViewStub
+        android:id="@+id/bannerViewStub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout="@layout/banner" />
+
+    <FrameLayout
+        android:id="@+id/rateContainer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#20FFFFFF">
+
+        <TextView
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/rate"
+            android:textAppearance="@style/TextAppearance.AppTheme.Button" />
+
+        <TextView
+            android:id="@+id/dismissRate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/dismiss_rate"
+            android:textAppearance="@style/TextAppearance.AppTheme.Button" />
+    </FrameLayout>
+
+</RelativeLayout>

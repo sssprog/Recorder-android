@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Recorder</string>
+    <string name="action_settings">Settings</string>
+    <string name="switch_to_recording">Switch to recording</string>
+    <string name="rate">Rate</string>
+    <string name="dismiss_rate">Dismiss</string>
+
+</resources>

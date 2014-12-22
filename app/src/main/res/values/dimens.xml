@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="record_button_size">120dp</dimen>
+    <dimen name="record_button_border_width">2dp</dimen>
+
+</resources>
