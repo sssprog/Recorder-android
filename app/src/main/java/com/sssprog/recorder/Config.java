@@ -1,7 +1,5 @@
 package com.sssprog.recorder;
 
-import android.os.Environment;
-
 import com.google.android.gms.ads.AdRequest;
 
 import java.io.File;
@@ -12,7 +10,7 @@ public class Config {
     public static final boolean SHOW_ADDS_IN_DEBUG = true;
 
     public static String getAudioFilePath() {
-        return App.getInstance().getExternalFilesDir(Environment.DIRECTORY_MUSIC) + "/audio.gpp";
+        return App.getInstance().getFilesDir() + "/audio.gpp";
     }
 
     public static File getAudioFile() {

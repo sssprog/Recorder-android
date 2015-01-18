@@ -166,6 +166,7 @@ public class PlaybackController extends MediaController {
             }
         });
         try {
+            Config.getAudioFile().setReadable(true, false);
             mediaPlayer.setDataSource(Config.getAudioFilePath());
             mediaPlayer.prepareAsync();
         } catch (IOException e) {

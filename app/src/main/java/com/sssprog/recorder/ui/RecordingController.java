@@ -79,6 +79,7 @@ public class RecordingController extends MediaController {
 
     private void stopRecording() {
         recorder.stop();
+        recorder.reset();
         recorder.release();
         recorder = null;
         listener.onFinished();
