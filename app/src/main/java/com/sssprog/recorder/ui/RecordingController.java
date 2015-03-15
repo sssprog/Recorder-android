@@ -5,6 +5,7 @@ import android.media.MediaRecorder;
 import android.os.Handler;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sssprog.recorder.Config;
 import com.sssprog.recorder.R;
@@ -43,13 +44,10 @@ public class RecordingController extends MediaController {
 
     @OnClick(R.id.record_play)
     public void onRecordClicked() {
-        isRecording = !isRecording;
-        updateButtonState();
-        if (isRecording) {
+        if (!isRecording) {
             startRecording();
         } else {
             stopRecording();
-            handler.removeCallbacks(timeUpdater);
         }
     }
 
@@ -71,13 +69,25 @@ public class RecordingController extends MediaController {
             LogHelper.printStackTrace(e);
         }
 
-        recorder.start();
-        startTime = System.currentTimeMillis();
-        timeUpdater.run();
-        keepScreenOn();
+        try {
+            recorder.start();
+            startTime = System.currentTimeMillis();
+            timeUpdater.run();
+            keepScreenOn();
+            isRecording = true;
+            updateButtonState();
+        } catch (Exception e) {
+            LogHelper.e(TAG, "start() failed");
+            LogHelper.printStackTrace(e);
+            Toast.makeText(activity, R.string.recording_error, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void stopRecording() {
+        isRecording = false;
+        updateButtonState();
+        handler.removeCallbacks(timeUpdater);
+
         recorder.stop();
         recorder.reset();
         recorder.release();

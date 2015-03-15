@@ -6,5 +6,6 @@
     <string name="switch_to_recording">Switch to recording</string>
     <string name="rate">Rate</string>
     <string name="dismiss_rate">Dismiss</string>
+    <string name="recording_error">Couldn\'t start recording</string>
 
 </resources>
