@@ -18,6 +18,7 @@ import java.io.IOException;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class PlaybackController extends MediaController {
 
@@ -56,6 +57,14 @@ public class PlaybackController extends MediaController {
         } else {
             pausePlayback();
         }
+    }
+
+    @OnLongClick(R.id.record_play)
+    public boolean onPlayLongClick() {
+        pausePlayback();
+        releasePlayer();
+        listener.onRecordingInitiated();
+        return true;
     }
 
     @OnClick(R.id.switchToRecording)

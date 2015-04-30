@@ -1,12 +1,15 @@
 package com.sssprog.recorder.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.media.MediaRecorder;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sssprog.recorder.App;
 import com.sssprog.recorder.Config;
 import com.sssprog.recorder.R;
 import com.sssprog.recorder.utils.LogHelper;
@@ -18,6 +21,7 @@ import java.io.IOException;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class RecordingController extends MediaController {
 
@@ -45,17 +49,27 @@ public class RecordingController extends MediaController {
     @OnClick(R.id.record_play)
     public void onRecordClicked() {
         if (!isRecording) {
+            vibrate();
             startRecording();
         } else {
+            stopRecordingAndSwitchToPlayback();
+        }
+    }
+
+    @OnLongClick(R.id.record_play)
+    public boolean onPlayLongClick() {
+        if (isRecording) {
             stopRecording();
         }
+        startRecording();
+        return true;
     }
 
     private void updateButtonState() {
         btnRecord.setImageResource(isRecording ? R.drawable.ic_stop_white_48dp : R.drawable.ic_mic_white_48dp);
     }
 
-    private void startRecording() {
+    public void startRecording() {
         recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
@@ -83,6 +97,13 @@ public class RecordingController extends MediaController {
         }
     }
 
+    private void vibrate() {
+        Vibrator vibrator = (Vibrator) App.getInstance().getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator != null) {
+            vibrator.vibrate(10);
+        }
+    }
+
     private void stopRecording() {
         isRecording = false;
         updateButtonState();
@@ -92,9 +113,13 @@ public class RecordingController extends MediaController {
         recorder.reset();
         recorder.release();
         recorder = null;
-        listener.onFinished();
         keepScreenOff();
         RateTimeService.incrementUsageCounter();
+    }
+
+    private void stopRecordingAndSwitchToPlayback() {
+        stopRecording();
+        listener.onFinished();
     }
 
     private void updateTimeView() {

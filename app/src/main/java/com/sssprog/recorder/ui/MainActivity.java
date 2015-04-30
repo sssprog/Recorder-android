@@ -124,6 +124,14 @@ public class MainActivity extends ActionBarActivity implements MediaControllerLi
         updateController();
     }
 
+    @Override
+    public void onRecordingInitiated() {
+        isRecording = !isRecording;
+        updateController();
+        RecordingController recordingController = (RecordingController) controller;
+        recordingController.startRecording();
+    }
+
     private void updateController() {
         switchToRecording.setVisibility(isRecording ? View.GONE : View.VISIBLE);
         seekBar.setVisibility(isRecording ? View.GONE : View.VISIBLE);
